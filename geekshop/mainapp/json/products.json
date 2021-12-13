@@ -1,0 +1,74 @@
+[
+  {
+    "category": "дом",
+    "name": "Комфорт 1",
+    "image": "products_images/product-1.jpg",
+    "short_desc":"комфортный стул",
+    "description": "подойдет для просмотра фильмов",
+    "price": "2984.5",
+    "quantity": "17"
+  },
+  {
+    "category": "дом",
+    "name": "Комфорт 2",
+    "image": "products_images/product-2.jpg",
+    "short_desc":"Строгость и элегантность",
+    "description": "Украсит интерьер",
+    "price": "5560",
+    "quantity": "7"
+  },
+  {
+    "category": "дом",
+    "name": "Комфорт 3",
+    "image": "products_images/product-3.jpg",
+    "short_desc":"система Memory foam",
+    "description": "повышенный комфорт",
+    "price": "10984.5",
+    "quantity": "53"
+  },
+  {
+    "category": "офис",
+    "name": "Брифинг",
+    "image": "products_images/product-4.jpg",
+    "short_desc":"Строгий стиль",
+    "description": "подойдет для просмотра секретарш",
+    "price": "5084",
+    "quantity": "117"
+  },
+  {
+    "category": "офис",
+    "name": "Дедлайн",
+    "image": "products_images/product-5.jpg",
+    "short_desc":"Дерзкий стиль",
+    "description": "Стимулирует продуктивность",
+    "price": "15560",
+    "quantity": "89"
+  },
+  {
+    "category": "классика",
+    "name": "БанкирЪ",
+    "image": "products_images/product-11.jpg",
+    "short_desc":"Почувствуйте роскошь",
+    "description": "Уют и роскошь",
+    "price": "155560",
+    "quantity": "9"
+  },
+  {
+    "category": "классика",
+    "name": "КупецЪ",
+    "image": "products_images/product-21.jpg",
+    "short_desc":"Старообрядческий стиль",
+    "description": "Для посиделок с чаем",
+    "price": "9560",
+    "quantity": "10"
+  },
+  {
+    "category": "классика",
+    "name": "СамоварЪ",
+    "image": "products_images/product-31.jpg",
+    "short_desc":"Мебель для чайной",
+    "description": "Для посиделок с чаем",
+    "price": "1917",
+    "quantity": "710"
+  }
+]
