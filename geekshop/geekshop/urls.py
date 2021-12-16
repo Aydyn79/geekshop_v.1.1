@@ -6,12 +6,12 @@ from django.conf.urls.static import static
 from django.conf.urls import include
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
+    # path('admin/', admin.site.urls),
     path('', main, name = 'main'),
     path('products/', include('mainapp.urls', namespace = 'products')),
     path('basket/', include('basketapp.urls', namespace = 'basket')),
     path('auth/', include('authapp.urls', namespace = 'auth')),
-    # path('main/', main, name = 'main'),
+    path('admin/', include('adminapp.urls', namespace='admin')),
     path('contact', contact, name = 'contact'),
 ]
 if settings.DEBUG:

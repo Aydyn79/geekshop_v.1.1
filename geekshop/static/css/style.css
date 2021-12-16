@@ -1311,3 +1311,6 @@ td:first-child {
 .related-products a:hover .text{
 	display: block;
 }
+.category_record.not_active {
+    opacity: 0.5;
+}

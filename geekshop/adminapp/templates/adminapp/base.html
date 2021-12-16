@@ -1,0 +1,32 @@
+
+{% load static %}
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    {% block css %}
+	<link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+	<link rel="stylesheet" href="{% static 'fonts/font-awesome/css/font-awesome.css' %}">
+    {% endblock %}
+
+</head>
+
+<body>
+  <div class="basket_container">
+    <div class="title">
+      страница системного администратора
+    </div>
+
+    {% block menu %}
+      <div class="menu">
+        {% include 'adminapp/includes/inc_menu.html' %}
+      </div>
+    {% endblock %}
+    {% block content %}
+
+    {% endblock %}
+  </div>
+</body>
+
+</html>

@@ -1,0 +1,38 @@
+
+
+
+<ul class="menu">
+
+    <li>
+        <a href="{% url 'main' %}">На сайт</a>
+    </li>
+
+  {% if user.is_authenticated %}
+    <li>
+      <a href="{% url 'auth:edit' %}">{{ user.first_name|default:'Пользователь' }}</a>
+    </li>
+  {% endif %}
+
+  {% if user.is_superuser %}
+      <li>
+        <a href="{% url 'admin:users' %}">Одминко</a>
+      </li>
+    {% endif %}
+
+    <li>
+    <a href="{% url 'admin:categories' %}">Категории
+      {% if category %}
+        :<span>{{ category.name }}</span>
+      {% endif %}
+    </a>
+    </li>
+
+    <li>
+    {% if user.is_authenticated %}
+      <a href="{% url 'auth:logout' %}">выйти</a>
+    {% else %}
+      <a href="{% url 'auth:login' %}">войти</a>
+    {% endif %}
+    </li>
+
+</ul>
