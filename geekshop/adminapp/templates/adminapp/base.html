@@ -1,6 +1,6 @@
-
-{% load static %}
 <!DOCTYPE html>
+{% load static %}
+
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
@@ -13,13 +13,13 @@
 </head>
 
 <body>
-  <div class="basket_container">
-    <div class="title">
+  <div class="admin_container">
+    <div class="h2 text-center head">
       страница системного администратора
     </div>
 
     {% block menu %}
-      <div class="menu">
+      <div class="admin_menu">
         {% include 'adminapp/includes/inc_menu.html' %}
       </div>
     {% endblock %}

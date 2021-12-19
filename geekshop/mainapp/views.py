@@ -1,3 +1,4 @@
+from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
 from django.shortcuts import render, get_object_or_404
 import os
 from pathlib import Path
@@ -8,15 +9,6 @@ import random
 from basketapp.models import Basket
 
 BASE_DIR = Path(__file__).resolve().parent.parent
-# Create your views here.
-
-
-# links_menu = [
-#         {'href':'product_all', 'name':'все'},
-#         {'href': 'product_home', 'name':'дом'},
-#         {'href': 'product_office', 'name': 'офис'},
-#         {'href': 'product_classic', 'name': 'классика'},
-#     ]
 
 menu = [
         {'href': 'main', 'name': 'Главная'},
@@ -24,42 +16,49 @@ menu = [
         {'href': 'contact', 'name': 'Контакты'},
     ]
 
-
-
 def products(request, pk=None):
-    # basket = []
-    # if request.user.is_authenticated:
-    #     basket = sum(list(Basket.objects.filter(user=request.user).values_list('quantity', flat=True)))
-    links_menu = ProductCategory.objects.all()
+    links_menu = ProductCategory.objects.filter(is_active=True)
     basket = get_basket(request.user)
-    hot_product = get_hot_product()
-    same_products = get_same_products(hot_product)
+    page = request.GET.get('p',1)
+    print(page)
     if pk is not None:
         if pk == 0:
-            products_list = Product.objects.all().order_by('price')
-            category_item = {'name': 'Все', 'pk':0}
+            category = {
+                'pk': 0,
+                'name': 'все'
+            }
+            products = Product.objects.filter(is_active=True, category__is_active=True).order_by('price')
         else:
-            category_item = get_object_or_404(ProductCategory, pk=pk)
-            products_list = Product.objects.filter(category=category_item).order_by('price')
-        content = {
-            'title': 'Продукты',
-            'links_menu': links_menu,
-            'menu': menu,
-            'category': category_item,
-            'products': products_list,
-            # 'product': get_object_or_404(Product, pk=pk),
-            'hot_product': hot_product,
-            'same_products': same_products,
-            'basket': basket
-        }
+            category = get_object_or_404(ProductCategory, pk=pk)
+            products = Product.objects.filter(category__pk=pk, is_active=True, category__is_active=True).order_by('price')
 
+        paginator = Paginator(products, 2)
+        try:
+            products_paginator = paginator.page(page)
+        except PageNotAnInteger:
+            products_paginator = paginator.page(1)
+        except EmptyPage:
+            products_paginator = paginator.page(paginator.num_pages)
+
+        content = {
+                'title': 'Продукты',
+                'links_menu': links_menu,
+                'category': category,
+                'products': products_paginator,
+                'basket': basket,
+                'menu': menu,
+
+            }
         return render(request,'mainapp/products_list.html', content)
+
+    hot_product = get_hot_product()
+    same_products = get_same_products(hot_product)
+
     content = {
         'title': 'Продукты',
         'links_menu': links_menu,
         'menu': menu,
         'products': same_products,
-        # 'product': get_object_or_404(Product, pk=pk),
         'basket': basket,
         'hot_product': hot_product,
     }
