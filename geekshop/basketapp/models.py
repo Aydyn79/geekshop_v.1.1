@@ -7,8 +7,16 @@ from mainapp.models import Product
 class Basket(models.Model):
     user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name='basket')
     product = models.ForeignKey(Product, on_delete=models.CASCADE)
-    add_datetime = models.DateTimeField(auto_now_add=True, verbose_name='время')
     quantity = models.PositiveSmallIntegerField(verbose_name='количество', default=0)
+    add_timestamp = models.DateTimeField(auto_now_add=True, verbose_name='время')
+    update_timestamp = models.DateTimeField(auto_now=True)
+
+    def __str__(self):
+        return f'Корзина для  {self.user.username} | Продукт{self.product.name}'
+
+    def sum(self):
+        return self.quantity * self.product.price
+
     # Methods
     @property
     def product_cost(self):
