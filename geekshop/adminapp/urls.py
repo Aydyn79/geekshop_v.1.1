@@ -1,23 +1,30 @@
-import adminapp.views as adminapp
+
 from django.urls import path
+from django.views.i18n import set_language
+
+from adminapp.views import IndexTemplateView, UserCreateView, UserUpdateView, UserDeleteView, UserListView, \
+    CategoryListView, CategoryDeleteView, CategoryUpdateView, ProductListView, CategoryCreateView, ProductsUpdateView, \
+    ProductsCreateView, ProductsDeleteView
 
 app_name = 'adminapp'
-
 urlpatterns = [
-    path('users/create/', adminapp.user_create, name='user_create'),
-    # path('users/read/', adminapp.users, name='users'),
-    path('users/read/', adminapp.UsersListView.as_view(), name='users'),
-    path('users/update/<int:pk>/', adminapp.user_update, name='user_update'),
-    path('users/delete/<int:pk>/', adminapp.user_delete, name='user_delete'),
 
-    path('categories/create/', adminapp.ProductCategoryCreateView.as_view(), name='category_create'),
-    path('categories/read/', adminapp.categories, name='categories'),
-    path('categories/update/<int:pk>/', adminapp.ProductCategoryUpdateView.as_view(), name='category_update'),
-    path('categories/delete/<int:pk>/', adminapp.ProductCategoryDeleteView.as_view(), name='category_delete'),
+    path('', IndexTemplateView.as_view(),name='index'),
+    path('users/', UserListView.as_view(),name='admin_users'),
+    path('users-create/', UserCreateView.as_view(),name='admin_users_create'),
+    path('users-update/<int:pk>', UserUpdateView.as_view(),name='admin_users_update'),
+    path('users-delete/<int:pk>', UserDeleteView.as_view(),name='admin_users_delete'),
 
-    path('products/create/category/<int:pk>/', adminapp.product_create, name='product_create'),
-    path('products/read/category/<int:pk>/', adminapp.products, name='products'),
-    path('products/read/<int:pk>/', adminapp.ProductDetailView.as_view(), name='product_read'),
-    path('products/update/<int:pk>/', adminapp.product_update, name='product_update'),
-    path('products/delete/<int:pk>/', adminapp.product_delete, name='product_delete'),
+    path('category/', CategoryListView.as_view(), name='admin_category'),
+    path('category/create/', CategoryCreateView.as_view(), name='admin_category_create'),
+    path('category-delete/<int:pk>/', CategoryDeleteView.as_view(), name='admin_category_delete'),
+    path('category-update/<int:pk>/', CategoryUpdateView.as_view(), name='admin_category_update'),
+    # path('category-detail/<int:pk>/', CategoryDetailView.as_view(), name='admin_category_detail'),
+
+    path('product/', ProductListView.as_view(), name='adminapp_product'),
+    path('products-update/<int:pk>/', ProductsUpdateView.as_view(), name='adminapp_product_update'),
+    path('products-create/', ProductsCreateView.as_view(), name='adminapp_product_create'),
+    path('products-delete/<int:pk>/', ProductsDeleteView.as_view(), name='adminapp_product_delete'),
+
+    path('lang/', set_language, name='set_language'),
 ]

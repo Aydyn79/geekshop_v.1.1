@@ -7,9 +7,11 @@ from basketapp.models import Basket
 from mainapp.models import Product
 
 @login_required
-def basket_add(request,id):
+# def basket_add(request,id):
+def basket_add(request, pk):
     user_select = request.user
-    product = Product.objects.get(id=id)
+    # product = Product.objects.get(id=id)
+    product = Product.objects.get(pk=pk)
     baskets = Basket.objects.filter(user=user_select,product=product)
     if baskets:
         basket = baskets.first()
@@ -37,14 +39,16 @@ def basket_add(request,id):
 #         return JsonResponse({'result': result})
 
 @login_required
-def basket_remove(request,basket_id):
-    Basket.objects.get(id=basket_id).delete()
+# def basket_remove(request,basket_id):
+def basket_remove(request,pk):
+    # Basket.objects.get(id=basket_id).delete()
+    Basket.objects.get(pk=pk).delete()
     return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
 
 @login_required
-def basket_edit(request,id_basket,quantity):
+def basket_edit(request,pk,quantity):
     if request.is_ajax():
-        basket = Basket.objects.get(id=id_basket)
+        basket = Basket.objects.get(pk=pk)
         if quantity > 0:
             basket.quantity = quantity
             basket.save()

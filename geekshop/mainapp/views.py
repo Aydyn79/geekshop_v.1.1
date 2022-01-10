@@ -6,19 +6,18 @@ import json
 from mainapp.models import Product, ProductCategory
 from django.conf import settings
 import random
-from basketapp.models import Basket
+from django.views.generic import DetailView
+
 
 BASE_DIR = Path(__file__).resolve().parent.parent
+MODULE_DIR = os.path.dirname(__file__)
 
-menu = [
-        {'href': 'main', 'name': 'Главная'},
-        {'href': 'products:products', 'name': 'Продукты'},
-        {'href': 'contact', 'name': 'Контакты'},
-    ]
+def main(request):
+    context = {
+        'title': 'Geekshop', }
+    return render(request, 'mainapp/index.html', context)
 
 def products(request, pk=None):
-    links_menu = ProductCategory.objects.filter(is_active=True)
-    basket = get_basket(request.user)
     page = request.GET.get('p',1)
     print(page)
     if pk is not None:
@@ -40,34 +39,36 @@ def products(request, pk=None):
         except EmptyPage:
             products_paginator = paginator.page(paginator.num_pages)
 
-        content = {
-                'title': 'Продукты',
-                'links_menu': links_menu,
+        context = {
+                'title': 'Geekshop | Каталог',
                 'category': category,
                 'products': products_paginator,
-                'basket': basket,
-                'menu': menu,
-
-            }
-        return render(request,'mainapp/products_list.html', content)
+                }
+        return render(request,'mainapp/products.html', context)
 
     hot_product = get_hot_product()
     same_products = get_same_products(hot_product)
-
-    content = {
-        'title': 'Продукты',
-        'links_menu': links_menu,
-        'menu': menu,
+    category = hot_product.category
+    context = {
+        'title': 'Geekshop | Каталог',
+        'category': category,
         'products': same_products,
-        'basket': basket,
-        'hot_product': hot_product,
+
     }
 
-    return render(request, 'mainapp/products.html', content)
+    return render(request, 'mainapp/products.html', context)
+
+
+
 
 def contact(request):
     with open(os.path.join(settings.BASE_DIR, 'mainapp\\json\\contact__locations.json')) as f:
         locations = json.load(f)
+    menu = [
+        {'href': 'main', 'name': 'Главная'},
+        {'href': 'products', 'name': 'Продукты'},
+        {'href': 'contact', 'name': 'Контакты'},
+    ]
     content = {
         'title': 'О нас',
         'menu': menu,
@@ -76,16 +77,16 @@ def contact(request):
     return render(request,'mainapp/contact.html', content)
 
 
-def main(request):
-    classic = Product.objects.filter(category_id=5)
-    content ={'title': 'Магазин', 'menu': menu, 'classic': classic}
-    return render(request,'mainapp/index.html', content)
+# def main(request):
+#     classic = Product.objects.filter(category_id=5)
+#     content ={'title': 'Магазин', 'menu': menu, 'classic': classic}
+#     return render(request,'mainapp/index.html', content)
 
-def get_basket(user):
-    if user.is_authenticated:
-        return Basket.objects.filter(user=user)
-    else:
-        return []
+# def get_basket(user):
+#     if user.is_authenticated:
+#         return Basket.objects.filter(user=user)
+#     else:
+#         return []
 
 
 def get_hot_product():
@@ -98,12 +99,25 @@ def get_same_products(hot_product):
     return same_products
 
 
-def product(request, pk):
-    content = {
-        'title': 'Товар',
-        'links_menu': ProductCategory.objects.all(),
-        'product': get_object_or_404(Product, pk=pk),
-        'basket': get_basket(request.user),
-    }
+# def product(request, pk):
+#     content = {
+#         'title': 'Товар',
+#         'links_menu': ProductCategory.objects.all(),
+#         'product': get_object_or_404(Product, pk=pk),
+#
+#     }
+#
+#     return render(request, 'mainapp/product.html', content)
 
-    return render(request, 'mainapp/product.html', content)
+class ProductDetail(DetailView):
+    """
+    Контроллер вывода информации о продукте
+    """
+    model = Product
+    template_name = 'mainapp/detail.html'
+
+    def get_context_data(self, **kwargs):
+        context = super(ProductDetail, self).get_context_data(**kwargs)
+        product = self.get_object()
+        context['product'] = product
+        return context

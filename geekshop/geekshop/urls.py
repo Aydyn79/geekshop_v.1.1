@@ -3,7 +3,7 @@ from django.urls import path, re_path
 from mainapp.views import products, contact, main
 from django.conf import settings
 from django.conf.urls.static import static
-from django.conf.urls import include, url
+from django.conf.urls import include
 from django.views.i18n import set_language
 
 urlpatterns = [
@@ -14,8 +14,10 @@ urlpatterns = [
     path('auth/', include('authapp.urls', namespace = 'auth')),
     path('admin/', include('adminapp.urls', namespace='admin')),
     path('contact', contact, name = 'contact'),
+    path('orders/', include('ordersapp.urls', namespace='orders')),
+
     re_path(r'^i18n/', include('django.conf.urls.i18n')),
-    url('', include('social_django.urls', namespace='social'))
+    path('', include('social_django.urls', namespace='social')),
 ]
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

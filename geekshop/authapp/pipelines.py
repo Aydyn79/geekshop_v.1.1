@@ -51,11 +51,11 @@ def save_user_profile(backend,user,response,*args,**kwargs):
     if data['photo_200']:
         photo_link = data['photo_200']
         photo_response = requests.get(photo_link)
-        path_photo = f'users_image/{user.pk}.jpg'
+        path_photo = f'user_image/{user.pk}.jpg'
         with open(f'media/{path_photo}','wb') as photo:
             photo.write(photo_response.content)
         user.image = path_photo
 
-    if data['personal']['langs']:
+    if data['personal']:
         user.userprofile.langs = data['personal']['langs'][0] if len(data['personal']['langs'][0]) > 0 else 'EN'
     user.save()

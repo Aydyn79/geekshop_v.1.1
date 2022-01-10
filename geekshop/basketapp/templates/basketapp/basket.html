@@ -18,7 +18,7 @@
                             </div>
                             <div class="col-lg-4">{{ basket.sum }}</div>
                             <div class="col-lg-4">
-                                <a href="{% url 'baskets:basket_remove' basket.id %}">
+                                <a href="{% url 'basket:remove' basket.id %}">
                                     <i class="fas fa-trash"></i>
                                 </a>
                             </div>
@@ -30,7 +30,7 @@
         <div class="card mb-3">
             <div class="card-footer">
                 <p class="float-left">Итого</p>
-                <h4 class="float-right">{{ baskets.0.total_sum }} руб.</h4>
+                <h4 class="float-right">{{ baskets.0.total_cost }} руб.</h4>
             </div>
         </div>
         <button type="button" class="btn btn-success btn-lg float-right">Оформить</button>
