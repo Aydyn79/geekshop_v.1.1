@@ -1,0 +1,182 @@
+    1  exit
+    2  apt update
+    3  apt install nginx
+    4  apt install postgresql postgresql-contrib
+    5  apt install python3-venv
+    6  nano /etc/postgresql/12/main/pg_hba.conf
+    7  systemctl restart postgresql
+    8  systemctl status postgresql
+    9  useradd -g www-data -m django
+   10  cd home/django
+   11  cd /home/django
+   12  git clone git@github.com:Aydyn79/geekshop_v.1.1.git
+   13  ssh -T git@github.com
+   14  nano /etc/postgresql/12/main/pg_hba.conf
+   15  ssh -T git@github.com
+   16  start the ssh-agent in the background
+   17  # start the ssh-agent in the background
+   18  $ eval "$(ssh-agent -s)"
+   19  eval "$(ssh-agent -s)"
+   20  ssh-add -l -E sha256
+   21  ssh-keygen -t ed25519 -C "your_email@example.com"
+   22  ssh-keygen -t ed25519 -C "mehtievaa@gmail.com"
+   23  start the ssh-agent in the background
+   24  # start the ssh-agent in the background
+   25  eval "$(ssh-agent -s)"
+   26  ssh-add ~/.ssh/id_ed25519
+   27  git clone git@github.com:Aydyn79/geekshop_v.1.1.git
+   28  ls -al ~/.ssh
+   29  ssh-keygen -t ed25519 -C "mehtievaa@gmail.com"
+   30  ssh-keygen
+   31  cat /root/ .ssh/id_rsa.pub
+   32  cat /root/.ssh/id_rsa.pub
+   33  git clone git@github.com:Aydyn79/geekshop_v.1.1.git
+   34  systemctl status postgresql
+   35  useradd g www-data -m django
+   36  ls
+   37  cd /home/django/
+   38  git clone git@github.com:Aydyn79/geekshop_v.1.1.git
+   39  python3 -m venv env
+   40  source env/bin/activate
+   41  pl
+   42  pi
+   43  cd geekshop-serve
+   44  cd geekshop_serve
+   45  ls
+   46  cd geekshop_v.1.1
+   47  git pull
+   48  git checkout part_2_lesson_5
+   49  git checkout chapter_2_lesson_4
+   50  cd geekshop/
+   51  ls
+   52  pip install -r requirements.txt
+   53  ssh-keygen
+   54  cd /home/django/
+   55  git clone https://github.com/Aydyn79/geekshop_v.1.1.git
+   56  rmdir geekshop_v.1.1
+   57  rm -Rfv geekshop_v.1.1
+   58  git clone https://github.com/Aydyn79/geekshop_v.1.1.git
+   59  cd geekshop_v.1.1
+   60  cd geekshop
+   61  cd..
+   62  cd ..
+   63  git branch
+   64  cd geekshop
+   65  ls
+   66  cd ..
+   67  git pull
+   68  git checkout  part_2_lesson_5
+   69  git pull
+   70  ls
+   71  cd geekshop
+   72  ls
+   73  pip install -r requirements.txt
+   74  cd ..
+   75  python3 -m venv env
+   76  env/bin/activate
+   77  source env/bin/activate
+   78  cd geekshop
+   79  cd geekshop_v.1.1
+   80  cd geekshop
+   81  pip install -r requirements.txt
+   82  pip install gunicorn
+   83  psql -U postgres
+   84  python3 manage.py migrate
+   85  python3 manage.py makemigrations
+   86  cd ..
+   87  rm -Rfv geekshop_v.1.1
+   88  git clone https://github.com/Aydyn79/geekshop_v.1.1.git
+   89  git pull
+   90  cd geekshop_v.1.1
+   91  git branch
+   92  git pull
+   93  git checkout  part_2_lesson_5
+   94  git pull
+   95  python3 -m venv env
+   96  source env/bin/activate
+   97  cd geekshop
+   98  pip install -r requirements.txt
+   99  pip install gunicorn
+  100  psql -U postgres
+  101  python3 manage.py migrate
+  102  psql -U postgres
+  103  cd geekshop
+  104  nano settings.py
+  105  psql -U postgres
+  106  python3 manage.py migrate
+  107  cd ..
+  108  python3 manage.py migrate
+  109  cd geekshop
+  110  nano settings.py
+  111  cd /home/django/geekshop_v.1.1/geekshop/geekshop
+  112  ls
+  113  cd ..
+  114  ls
+  115  cd ..
+  116  ls
+  117  git checkout  part_2_lesson_5
+  118  cd geekshop
+  119  ls
+  120  cd /home/django/
+  121  rm -Rfv geekshop_v.1.1
+  122  clean
+  123  clear
+  124  git clone https://github.com/Aydyn79/Geekstore.git
+  125  cd geekshop
+  126  python3 -m venv env
+  127  source env/bin/activate
+  128  git branch
+  129  cd geekstore
+  130  cd Geekstore
+  131  git branch
+  132  git pull
+  133  ls
+  134  cd geekshop
+  135  pip install -r requirements.txt
+  136  pip install gunicorn
+  137  psql -U postgres
+  138  cd geekshop
+  139  nano settings.py
+  140  cd ..
+  141  cd geekshop
+  142  nano settings.py
+  143  cd ..
+  144  python3 manage.py migrate
+  145  python3 manage.py fill_db
+  146  python3 manage.py fill
+  147  python3 manage.py runserver 0.0.0.0:8000
+  148  nano /etc/systemd/system/gunicorn.config
+  149  systemctl enable gunicorn.service
+  150  mv gunicorn.config gunicorn.service
+  151  cd /etc/systemd/system/
+  152  mv gunicorn.config gunicorn.service
+  153  nano gunicorn.service
+  154  cd /home/django/
+  155  ls
+  156  cd /etc/systemd/system/
+  157  nano gunicorn.service
+  158  cd /home/django/Geekstore/geekshop/
+  159  systemctl enable gunicorn.service
+  160  systemctl start gunicorn.service
+  161  systemctl status gunicorn.service
+  162  chown -R django /home/django/
+  163  systemctl restart gunicorn.service
+  164  systemctl status gunicorn.service
+  165  sudo nano /etc/nginx/sites-available/geekshop
+  166  systemctl restart gunicorn.service
+  167  systemctl status gunicorn.service
+  168  ln -s /etc/nginx/sites-available/geekshop /etc/nginx/sites-enabled/ 
+  169  rm /etc/nginx/sites-enabled/default 
+  170  systemctl restart gunicorn.service
+  171  nginx -t
+  172  systemctl restart nginx
+  173  systemctl status nginx
+  174  tail -f /var/log/nginx/error.log
+  175  pytho3 manage.py createsuperuser
+  176  python3 manage.py createsuperuser
+  177  git status
+  178  git pull
+  179  systemctl restart gunicorn
+  180  git pull
+  181  systemctl restart gunicorn
+  182  history > /tmp/history.txt
