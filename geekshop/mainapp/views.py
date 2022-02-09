@@ -26,10 +26,11 @@ def products(request, pk=None):
                 'pk': 0,
                 'name': 'все'
             }
-            products = Product.objects.filter(is_active=True, category__is_active=True).order_by('price')
+            products = Product.objects.filter(is_active=True, category__is_active=True).select_related('category').order_by('price')
         else:
-            category = get_object_or_404(ProductCategory, pk=pk)
-            products = Product.objects.filter(category__pk=pk, is_active=True, category__is_active=True).order_by('price')
+            # category = get_object_or_404(ProductCategory, pk=pk)
+            # products = Product.objects.filter(category__pk=pk, is_active=True, category__is_active=True).order_by('price')
+            products = Product.objects.all().select_related()
 
         paginator = Paginator(products, 2)
         try:
