@@ -17,50 +17,74 @@ def main(request):
         'title': 'Geekshop', }
     return render(request, 'mainapp/index.html', context)
 
-def products(request, pk=None):
-    page = request.GET.get('p',1)
-    print(page)
-    if pk is not None:
-        if pk == 0:
-            category = {
-                'pk': 0,
-                'name': 'все'
-            }
-            # products = Product.objects.filter(is_active=True, category__is_active=True).select_related('category').order_by('price')
-            products = Product.objects.filter(category_id=category).select_related('category')
-        else:
-            # category = get_object_or_404(ProductCategory, pk=pk)
-            # products = Product.objects.filter(category__pk=pk, is_active=True, category__is_active=True).order_by('price')
-            products = Product.objects.all().select_related()
+# def products(request, pk=None):
+#     page = request.GET.get('p',1)
+#     print(page)
+#     if pk is not None:
+#         if pk == 0:
+#             category = {
+#                 'pk': 0,
+#                 'name': 'все'
+#             }
+#             # products = Product.objects.filter(is_active=True, category__is_active=True).select_related('category').order_by('price')
+#             products = Product.objects.filter(is_active=True, category__is_active=True).select_related('category').order_by('price')
+#
+#         else:
+#             # category = get_object_or_404(ProductCategory, pk=pk)
+#             # products = Product.objects.filter(category__pk=pk, is_active=True, category__is_active=True).order_by('price')
+#             products = Product.objects.all().select_related()
+#
+#         paginator = Paginator(products, 2)
+#         try:
+#             products_paginator = paginator.page(page)
+#         except PageNotAnInteger:
+#             products_paginator = paginator.page(1)
+#         except EmptyPage:
+#             products_paginator = paginator.page(paginator.num_pages)
+#
+#         context = {
+#                 'title': 'Geekshop | Каталог',
+#                 'category': category,
+#                 'products': products_paginator,
+#                 }
+#         return render(request,'mainapp/products.html', context)
+#     hot_product = get_hot_product()
+#     same_products = get_same_products(hot_product)
+#     category = hot_product.category
+#     context = {
+#         'title': 'Geekshop | Каталог',
+#         'category': category,
+#         'products': same_products,
+#
+#     }
+#
+#     return render(request, 'mainapp/products.html', context)
 
-        paginator = Paginator(products, 2)
-        try:
-            products_paginator = paginator.page(page)
-        except PageNotAnInteger:
-            products_paginator = paginator.page(1)
-        except EmptyPage:
-            products_paginator = paginator.page(paginator.num_pages)
+def products(request, id_category=None, page=1):
 
-        context = {
-                'title': 'Geekshop | Каталог',
-                'category': category,
-                'products': products_paginator,
-                }
-        return render(request,'mainapp/products.html', context)
-
-    hot_product = get_hot_product()
-    same_products = get_same_products(hot_product)
-    category = hot_product.category
     context = {
         'title': 'Geekshop | Каталог',
-        'category': category,
-        'products': same_products,
-
     }
 
+    if id_category:
+        products = Product.objects.filter(category_id=id_category).select_related('category')
+    else:
+        products = Product.objects.all().select_related()
+         # products = Product.objects.all().prefetch_related()
+        # products = get_product()
+    paginator = Paginator(products, per_page=3)
+
+    try:
+        products_paginator = paginator.page(page)
+    except PageNotAnInteger:
+        products_paginator = paginator.page(1)
+    except EmptyPage:
+        products_paginator = paginator.page(paginator.num_pages)
+
+    context['products'] = products_paginator
+    context['categories'] = ProductCategory.objects.all()
+    # context['categories'] = get_link_category()
     return render(request, 'mainapp/products.html', context)
-
-
 
 
 def contact(request):
