@@ -75,12 +75,12 @@ class OrderUpdateView(UpdateView, BaseClassContextMixin):
 
     def get_context_data(self, **kwargs):
         context = super(OrderUpdateView, self).get_context_data(**kwargs)
-
+        queryset = self.object.orderitems.select_related()
         OrderFormSet = inlineformset_factory(Order, OrderItem, OrderItemsForm, extra=1)
         if self.request.POST:
             formset = OrderFormSet(self.request.POST, instance=self.object)
         else:
-            formset = OrderFormSet(instance=self.object)
+            formset = OrderFormSet(instance=self.object, queryset=queryset)
             for form in formset:
                 if form.instance.pk:
                     form.initial['price'] = form.instance.product.price
