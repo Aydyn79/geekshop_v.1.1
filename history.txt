@@ -1,0 +1,579 @@
+    1  exit
+    2  apt update
+    3  apt install nginx
+    4  apt install postgresql postgresql-contrib
+    5  apt install python3-venv
+    6  nano /etc/postgresql/12/main/pg_hba.conf
+    7  systemctl restart postgresql
+    8  systemctl status postgresql
+    9  useradd -g www-data -m django
+   10  cd home/django
+   11  cd /home/django
+   12  git clone git@github.com:Aydyn79/geekshop_v.1.1.git
+   13  ssh -T git@github.com
+   14  nano /etc/postgresql/12/main/pg_hba.conf
+   15  ssh -T git@github.com
+   16  start the ssh-agent in the background
+   17  # start the ssh-agent in the background
+   18  $ eval "$(ssh-agent -s)"
+   19  eval "$(ssh-agent -s)"
+   20  ssh-add -l -E sha256
+   21  ssh-keygen -t ed25519 -C "your_email@example.com"
+   22  ssh-keygen -t ed25519 -C "mehtievaa@gmail.com"
+   23  start the ssh-agent in the background
+   24  # start the ssh-agent in the background
+   25  eval "$(ssh-agent -s)"
+   26  ssh-add ~/.ssh/id_ed25519
+   27  git clone git@github.com:Aydyn79/geekshop_v.1.1.git
+   28  ls -al ~/.ssh
+   29  ssh-keygen -t ed25519 -C "mehtievaa@gmail.com"
+   30  ssh-keygen
+   31  cat /root/ .ssh/id_rsa.pub
+   32  cat /root/.ssh/id_rsa.pub
+   33  git clone git@github.com:Aydyn79/geekshop_v.1.1.git
+   34  systemctl status postgresql
+   35  useradd g www-data -m django
+   36  ls
+   37  cd /home/django/
+   38  git clone git@github.com:Aydyn79/geekshop_v.1.1.git
+   39  python3 -m venv env
+   40  source env/bin/activate
+   41  pl
+   42  pi
+   43  cd geekshop-serve
+   44  cd geekshop_serve
+   45  ls
+   46  cd geekshop_v.1.1
+   47  git pull
+   48  git checkout part_2_lesson_5
+   49  git checkout chapter_2_lesson_4
+   50  cd geekshop/
+   51  ls
+   52  pip install -r requirements.txt
+   53  ssh-keygen
+   54  cd /home/django/
+   55  git clone https://github.com/Aydyn79/geekshop_v.1.1.git
+   56  rmdir geekshop_v.1.1
+   57  rm -Rfv geekshop_v.1.1
+   58  git clone https://github.com/Aydyn79/geekshop_v.1.1.git
+   59  cd geekshop_v.1.1
+   60  cd geekshop
+   61  cd..
+   62  cd ..
+   63  git branch
+   64  cd geekshop
+   65  ls
+   66  cd ..
+   67  git pull
+   68  git checkout  part_2_lesson_5
+   69  git pull
+   70  ls
+   71  cd geekshop
+   72  ls
+   73  pip install -r requirements.txt
+   74  cd ..
+   75  python3 -m venv env
+   76  env/bin/activate
+   77  source env/bin/activate
+   78  cd geekshop
+   79  cd geekshop_v.1.1
+   80  cd geekshop
+   81  pip install -r requirements.txt
+   82  pip install gunicorn
+   83  psql -U postgres
+   84  python3 manage.py migrate
+   85  python3 manage.py makemigrations
+   86  cd ..
+   87  rm -Rfv geekshop_v.1.1
+   88  git clone https://github.com/Aydyn79/geekshop_v.1.1.git
+   89  git pull
+   90  cd geekshop_v.1.1
+   91  git branch
+   92  git pull
+   93  git checkout  part_2_lesson_5
+   94  git pull
+   95  python3 -m venv env
+   96  source env/bin/activate
+   97  cd geekshop
+   98  pip install -r requirements.txt
+   99  pip install gunicorn
+  100  psql -U postgres
+  101  python3 manage.py migrate
+  102  psql -U postgres
+  103  cd geekshop
+  104  nano settings.py
+  105  psql -U postgres
+  106  python3 manage.py migrate
+  107  cd ..
+  108  python3 manage.py migrate
+  109  cd geekshop
+  110  nano settings.py
+  111  cd /home/django/geekshop_v.1.1/geekshop/geekshop
+  112  ls
+  113  cd ..
+  114  ls
+  115  cd ..
+  116  ls
+  117  git checkout  part_2_lesson_5
+  118  cd geekshop
+  119  ls
+  120  cd /home/django/
+  121  rm -Rfv geekshop_v.1.1
+  122  clean
+  123  clear
+  124  git clone https://github.com/Aydyn79/Geekstore.git
+  125  cd geekshop
+  126  python3 -m venv env
+  127  source env/bin/activate
+  128  git branch
+  129  cd geekstore
+  130  cd Geekstore
+  131  git branch
+  132  git pull
+  133  ls
+  134  cd geekshop
+  135  pip install -r requirements.txt
+  136  pip install gunicorn
+  137  psql -U postgres
+  138  cd geekshop
+  139  nano settings.py
+  140  cd ..
+  141  cd geekshop
+  142  nano settings.py
+  143  cd ..
+  144  python3 manage.py migrate
+  145  python3 manage.py fill_db
+  146  python3 manage.py fill
+  147  python3 manage.py runserver 0.0.0.0:8000
+  148  nano /etc/systemd/system/gunicorn.config
+  149  systemctl enable gunicorn.service
+  150  mv gunicorn.config gunicorn.service
+  151  cd /etc/systemd/system/
+  152  mv gunicorn.config gunicorn.service
+  153  nano gunicorn.service
+  154  [Unit]
+  155  Description=gunicorn daemon
+  156  After=network.target
+  157  [Service]
+  158  User=django
+  159  Group=www-data
+  160  WorkingDirectory=/home/django/geekshop
+  161  ExecStart=/home/django/geekshop/django2/bin/gunicorn --access-logfile - --workers 3 --bind unix:/home/django/geekshop/geekshop.sock geekshop.wsgi
+  162  [Install]
+  163  cd [Unit]
+  164  Description=gunicorn daemon
+  165  After=network.target
+  166  [Service]
+  167  User=django
+  168  Group=www-data
+  169  WorkingDirectory=/home/django/geekshop
+  170  ExecStart=/home/django/geekshop/django2/bin/gunicorn --access-logfile - --workers 3 --bind unix:/home/django/geekshop/geekshop.sock geekshop.wsgi
+  171  [Install]
+  172  WantedBy=multi-user.target[Unit]
+  173  Description=gunicorn daemon
+  174  After=network.target
+  175  [Service]
+  176  User=django
+  177  Group=www-data
+  178  WorkingDirectory=/home/django/geekshop
+  179  ExecStart=/home/django/geekshop/django2/bin/gunicorn --access-logfile - --workers 3 --bind unix:/home/django/geekshop/geekshop.sock geekshop.wsgi
+  180  [Install]
+  181  nano gunicorn.service
+  182  cd /home/django/
+  183  ls
+  184  cd /etc/systemd/system/
+  185  nano gunicorn.service
+  186  cd /home/django/Geekstore/geekshop/
+  187  systemctl enable gunicorn.service
+  188  systemctl start gunicorn.service
+  189  systemctl status gunicorn.service
+  190  chown -R django /home/django/
+  191  systemctl restart gunicorn.service
+  192  systemctl status gunicorn.service
+  193  sudo nano /etc/nginx/sites-available/geekshop
+  194  systemctl restart gunicorn.service
+  195  systemctl status gunicorn.service
+  196  ln -s /etc/nginx/sites-available/geekshop /etc/nginx/sites-enabled/ 
+  197  rm /etc/nginx/sites-enabled/default 
+  198  systemctl restart gunicorn.service
+  199  nginx -t
+  200  systemctl restart nginx
+  201  systemctl status nginx
+  202  tail -f /var/log/nginx/error.log
+  203  pytho3 manage.py createsuperuser
+  204  python3 manage.py createsuperuser
+  205  git status
+  206  git pull
+  207  systemctl restart gunicorn
+  208  git pull
+  209  systemctl restart gunicorn
+  210  history > /tmp/history.txt
+  211  exit
+  212  cd /home/django/
+  213  ls
+  214  cd /Geekstore
+  215  cd Geekstore
+  216  source ../../env/bin/activate
+  217  ls
+  218  cd geekshop
+  219  source ../../env/bin/activate
+  220  git checkout Chapter_2_lesson_5
+  221  git pull
+  222  git stash save
+  223  git merge origin/master
+  224  git stash pop
+  225  git pull
+  226  git checkout -- <file>
+  227  git commit
+  228  git commit -a
+  229  git pull
+  230  git checkout Chapter_2_lesson_6
+  231  git branch
+  232  git stash
+  233  git pull
+  234  git stash pop
+  235  git branch
+  236  git merge
+  237  git pull
+  238  git branch
+  239  git checkout Chapter_2_lesson_6
+  240  git add $ the_file_under_error git commit git pull
+  241  git add the_file_under_error git commit git pull
+  242  git stash save --keep-index
+  243  git stash pop
+  244  git pull
+  245  git branch
+  246  git pull
+  247  git branch
+  248  git pull
+  249  git branch
+  250  git stash pop
+  251  git stash save --keep-index
+  252  git pull
+  253  git branch
+  254  git checkout Chapter_2_lesson_6
+  255  git checkout origin Chapter_2_lesson_6
+  256  git pull
+  257  git branch
+  258  git pull
+  259  pip install -r requirements.txt
+  260  ls
+  261  systemctl restart gunicorn
+  262  systemctl status gunicorn
+  263  git pull
+  264  systemctl status gunicorn
+  265  git pull
+  266  systemctl status gunicorn
+  267  git pull
+  268  systemctl status gunicorn
+  269  nano ../mainapp/views.py
+  270  nano ../../mainapp/views.py
+  271  nano /mainapp/views.py
+  272  nano mainapp/views.py
+  273  systemctl status gunicorn
+  274  git branch
+  275  git pull
+  276  systemctl status gunicorn
+  277  cd
+  278  cd /home/django/
+  279  ls
+  280  cd /Geekstore/geekshop
+  281  cd Geekstore/geekshop
+  282  git pull
+  283  git commit -m "Geekstore"
+  284  git commit -a
+  285  git log
+  286  git merge new-feature
+  287  git reset --hard
+  288  git pull
+  289  cd geekshop
+  290  nano settings.py
+  291  cd ..
+  292  systemctl status gunicorn
+  293  cd mainapp/views.py
+  294  nano /mainapp/views.py
+  295  ls
+  296  cd mainapp
+  297  ls
+  298  nano views.py
+  299  cd ..
+  300  sudo apt install graphviz
+  301  python3 manage.py graph_models -a -g -o gb.png
+  302  pip install pygraphviz
+  303  pip3 install pygraphviz
+  304  pip3 install pyparsing pydot
+  305  python3 manage.py graph_models -a -g -o gb.png
+  306  sudo apt-get install graphviz-dev
+  307  python3 manage.py graph_models -a -g -o gb.png
+  308  pip3 install pygraphviz
+  309  git pull
+  310  git branch
+  311  systemctl status gunicorn
+  312  systemctl restart gunicorn
+  313  git pull
+  314  systemctl restart gunicorn
+  315  python3 manage.py graph_models -a -g -o gb.png
+  316  manage.py help
+  317  python3 manage.py help
+  318  python3 manage.py help graph_models
+  319  python3 manage.py help graphviz
+  320  pip3 install requirements.txt
+  321  pip3 install -r requirements.txt
+  322  python3 manage.py graph_models -a -g -o gb.png
+  323  pip3 install pygraphviz
+  324  sudo apt-get install python3-dev
+  325  apt-get update
+  326  sudo apt-get install python3-dev
+  327  pip3 install pygraphviz
+  328  pip install wheel
+  329  pip3 install pygraphviz
+  330  sudo apt-get install build-essential autoconf libtool pkg-config python-opengl python-imaging python-pyrex python-pyside.qtopengl idle-python2.7 qt4-dev-tools qt4-designer libqtgui4 libqtcore4 libqt4-xml libqt4-test libqt4-script libqt4-network libqt4-dbus python-qt4 python-qt4-gl libgle3 python-dev libssl-dev
+  331  sudo easy_install greenlet
+  332  sudo apt-get install libpq-dev python-dev libxml2-dev libxslt1-dev libldap2-dev libsasl2-dev libffi-dev
+  333  pip3 install pygraphviz
+  334  sudo apt-get install python3.8-dev
+  335  pip3 install pygraphviz
+  336  sudo apt-get install gcc
+  337  sudo apt-get install python-dateutil python-docutils python-feedparser python-gdata python-jinja2 python-ldap python-libxslt1 python-lxml python-mako python-mock python-openid python-psycopg2 python-psutil python-pybabel python-pychart python-pydot python-pyparsing python-reportlab python-simplejson python-tz python-unittest2 python-vatnumber python-vobject python-webdav python-werkzeug python-xlwt python-yaml python-zsi
+  338  pip3 install pygraphviz
+  339  python3 manage.py graph_models -a -g -o gb.png
+  340  python3 manage.py help
+  341  python3 manage.py shell
+  342  cd geekshop
+  343  nano settings.py
+  344  python3 manage.py from django.conf import settings; 'django_extensions' in settings.INSTALLED_APPS
+  345  python3 manage.py graph_models -a -g -o gb.png
+  346  cd ..
+  347  python3 manage.py from django.conf import settings; 'django_extensions' in settings.INSTALLED_APPS
+  348  pip install django_extensions
+  349  python3 manage.py from django.conf import settings; 'django_extensions' in settings.INSTALLED_APPS
+  350  python3 manage.py graph_models -a -g -o gb.png
+  351  ls
+  352  scp root@89-108-76-69:/home/django/Geekstore/geekshop/gb.png ./Documents/
+  353  scp root@89-108-76-69:/home/django/Geekstore/geekshop/gb.png ./C/
+  354  scp root@89-108-76-69:/home/django/Geekstore/geekshop/gb.png C:/Documents/
+  355  scp root@89-108-76-69:/home/django/Geekstore/geekshop/gb.png ./Documents/
+  356  scp root@89-108-76-69:/home/django/Geekstore/geekshop/tmp.txt .
+  357  scp root@89-108-76-69:/home/django/Geekstore/geekshop/tmp.txt Users/Administrator/Desktop
+  358  scp root@89-108-76-69:/home/django/Geekstore/geekshop/tmp.txt Users
+  359  scp tmp.txt root@89-108-76-69:/home/django/Geekstore/geekshop .
+  360  cd /home/django/Geekstore/geekshop/
+  361  source ../../env/bin/activate
+  362  scp root@89-108-76-69:/home/django/Geekstore/geekshop/gb.png
+  363  scp root@89-108-76-69:/home/django/Geekstore/geekshop/gb.png ./documents/
+  364  scp root@89-108-76-69:/home/django/Geekstore/geekshop/gb.png .
+  365  ls
+  366  cd tmp
+  367  ls
+  368  cd emails
+  369  ls
+  370  scp root@89-108-76-69:/home/django/Geekstore/geekshop/gb.png C:\temp
+  371  scp root@89-108-76-69:/home/django/Geekstore/geekshop/gb.png ~/Desktop
+  372  cd ..
+  373  scp root@89-108-76-69:/home/django/Geekstore/geekshop/gb.png ~/Desktop
+  374  cd
+  375  scp root@89-108-76-69:/home/django/Geekstore/geekshop/gb.png ~/Desktop
+  376  scp root@89-108-76-69:/home/django/Geekstore/geekshop/gb.png .
+  377  scp -r root@89-108-76-69:/home/django/Geekstore/geekshop/tmp ~/Desktop
+  378  scp -r root@89-108-76-69:/home/django/Geekstore/geekshop/tmp .
+  379  scp root@89-108-76-69:/home/django/Geekstore/geekshop/gb.png Администратор@XTREME-TOMVP847:~/Desktop
+  380  scp root@89-108-76-69:/home/django/Geekstore/geekshop/gb.png 192.168.0.102:~/Desktop
+  381  scp root@89-108-76-69:/home/django/Geekstore/geekshop/gb.png ~/tmp
+  382  scp root@89-108-76-69:/home/django/Geekstore/geekshop/gb.png /
+  383  cd /home/django/Geekstore/geekshop/
+  384  nano tmp.txt
+  385  ls
+  386  scp root@89-108-76-69:/home/django/Geekstore/geekshop/tmp.txt .
+  387  man scp
+  388  logout
+  389  cd /home/django/Geekstore/geekshop
+  390  source ../../env/bin/activate
+  391  sudo apt install siege
+  392  ls
+  393  nano rm tmp.txt urls.txt
+  394  ls
+  395  rm rm
+  396  ls
+  397  nano urls.txt
+  398  ls
+  399  siege -f urls.txt -d1 -r1 -c1
+  400  history > history.txt
+  401  ls
+  402  nano history.txt
+  403  siege -f urls.txt -d1 -r4 -c1
+  404  siege -f urls.txt -d50 -r25 -c25
+  405  nano urls.txt
+  406  siege -f urls.txt -d1 -r1 -c1 --debug
+  407  nano screen.txt
+  408  pwd >> screen.txt
+  409  nano screen.txt
+  410  siege -f urls.txt -d1 -r1 -c1 --debug >> screen.txt
+  411  nano screen.txt
+  412  nano settings.py
+  413  ls
+  414  cd geekshop
+  415  nano settings.py
+  416  cd /home/django/Geekstore/geekshop/
+  417  nano urls.txt
+  418  siege -f urls.txt -d0 -r3 -c1 --debug >> screen.txt
+  419  nano screen.txt
+  420  cd geekshop
+  421  nano settings.py
+  422  systemctl restart gunicorn
+  423  siege -f urls.txt -d0 -r3 -c1 --debug
+  424  cd ..
+  425  siege -f urls.txt -d0 -r3 -c1 --debug
+  426  nano settings.py
+  427  cd geekshop
+  428  nano settings.py
+  429  cd /home/django/Geekstore/geekshop/
+  430  cd geekshop
+  431  nano urls.txt
+  432  cd ..
+  433  nano urls.txt
+  434  siege -f urls.txt -d0 -r3 -c1 --debug
+  435  cd geekshop
+  436  nano settings.py
+  437  systemctl restart gunicorn
+  438  siege -f urls.txt -d0 -r3 -c1 --debug
+  439  cd ..
+  440  systemctl restart gunicorn
+  441  siege -f urls.txt -d0 -r3 -c1 --debug
+  442  cd
+  443  ls
+  444  history
+  445  source ../../env/bin/activate
+  446  cd /home/django/Geekstore/geekshop
+  447  source ../../env/bin/activate
+  448  ls
+  449  cd ..
+  450  ls
+  451  cd ..
+  452  ls
+  453  cd ..
+  454  ls
+  455  cd ..
+  456  find siege
+  457  find .siege
+  458  find .siege/
+  459  find .siege/find -name "*.conf"
+  460  find -name "*.conf"
+  461  nano ./root/.siege/siege.conf
+  462  cd /home/django/Geekstore/geekshop
+  463  siege -f urls.txt -d0 -r3 -c1 --debug
+  464  systemctl restart gunicorn
+  465  siege -f urls.txt -d0 -r3 -c1 --debug
+  466  siege -f urls.txt -d1 -r1 -c1 --debug
+  467  siege -f urls.txt -d0 -r3 -c1 --debug
+  468  ls
+  469  nano urls.txt
+  470  systemctl restart gunicorn
+  471  siege -f urls.txt -d0 -r3 -c1 --debug
+  472  python3 manage.py show_urls > geekshop_urls.txt
+  473  ls
+  474  nano geekshop_urls.txt
+  475  nano urls.txt
+  476  siege -f urls.txt -d0 -r16 -c1 --debug >> screen.txt
+  477  | tee screen.txt
+  478  siege -f urls.txt -d0 -r16 -c1 --debug | tee screen.txt
+  479  nano screen.txt
+  480  nano urls.txt
+  481  siege -f urls.txt -d0 -r25 -c50
+  482  siege -f urls.txt -d0 -r15 -c25
+  483  nano urls.txt
+  484  siege -f urls.txt -d0 -r15 -c25
+  485  nano urls.txt
+  486  siege -f urls.txt -d0 -r15 -c25
+  487  nano urls.txt
+  488  siege -f urls.txt -d0 -r15 -c25
+  489  nano urls.txt
+  490  siege -f urls.txt -d0 -r15 -c25
+  491  nano urls.txt
+  492  siege -f urls.txt -d0 -r15 -c25
+  493  nano urls.txt
+  494  siege -f urls.txt -d0 -r15 -c25
+  495  nano urls.txt
+  496  siege -f urls.txt -d0 -r15 -c25
+  497  nano urls.txt
+  498  siege -f urls.txt -d0 -r1 -c1 --debug 
+  499  history
+  500  source ../../env/bin/activate
+  501  cd /home/django/Geekstore/geekshop/
+  502  source ../../env/bin/activate
+  503  git pull
+  504  systemctl restart gunicorn
+  505  nano ordersapp/views.py
+  506  nano ordersapp/forms.py
+  507  fg
+  508  systemctl restart gunicorn
+  509  nano ordersapp/views.py
+  510  systemctl restart gunicorn
+  511  nano ordersapp/forms.py
+  512  systemctl restart gunicorn
+  513  nano ordersapp/forms.py
+  514  nano ordersapp/views.py
+  515  systemctl restart gunicorn
+  516  cd /ordersapp/
+  517  cd geekshop/ordersapp/
+  518  ls
+  519  cd /ordersapp
+  520  cd ordersapp/
+  521  cat views.py
+  522  nano views.py
+  523  nano forms.py
+  524  systemctl restart gunicorn
+  525  nano views.py
+  526  systemctl restart gunicorn
+  527  siege -f urls.txt -d0 -r1 -c1 --debug 
+  528  cd ..
+  529  nano urls.txt
+  530  siege -f urls.txt -d0 -r1 -c1 --debug 
+  531  nano urls.txt
+  532  siege -f urls.txt -d0 -r1 -c1 --debug 
+  533  less urls.txt
+  534  nano urls.txt
+  535  siege -f urls.txt -d0 -r6 -c1 --debug | less 
+  536  nano urls.txt
+  537  siege -f urls.txt -d0 -r6 -c1 --debug | less 
+  538  nano urls.txt
+  539  siege -f urls.txt -d0 -r1 -c1 --debug | less 
+  540  nano urls.txt
+  541  siege -f urls.txt -d0 -r1 -c1 --debug | less 
+  542  nano urls.txt
+  543  siege -f urls.txt -d0 -r1 -c1 --debug | less 
+  544  siege -f urls.txt -d0 -r1 -c1 --debug
+  545  history
+  546  siege -f urls.txt -d0 -r15 -c25 --debug
+  547  nano urls.txt
+  548  siege -f urls.txt -d0 -r15 -c25 --debug
+  549  nano urls.txt
+  550  siege -f -i urls.txt -d0 -r50 -c50 --debug
+  551  siege -f urls.txt -d0 -r50 -c50 --debug
+  552  siege -f urls.txt -d0 -r25 -c100 --debug
+  553  siege -f urls.txt -d0 -r25 -c75 --debug
+  554  siege -f urls.txt -d0 -r10 -c75 --debug
+  555  siege -f urls.txt -d0 -r25 -c65 --debug
+  556  siege -i -f /home/django/Geekstore/geekshop/urls.txt -d0 -r17 -c150
+  557  siege -i -f /home/django/Geekstore/geekshop/urls.txt -d0 -r17 -c25
+  558  siege -i -f /home/django/Geekstore/geekshop/urls.txt -d0 -r17 -c35
+  559  siege -i -f /home/django/Geekstore/geekshop/urls.txt -d0 -r17 -c45
+  560  siege -i -f /home/django/Geekstore/geekshop/urls.txt -d0 -r17 -c55
+  561  siege -i -f /home/django/Geekstore/geekshop/urls.txt -d0 -r17 -c65
+  562  siege -i -f /home/django/Geekstore/geekshop/urls.txt -d0 -r17 -c75
+  563  siege -i -f /home/django/Geekstore/geekshop/urls.txt -d0 -r17 -c85
+  564  siege -i -f /home/django/Geekstore/geekshop/urls.txt -d0 -r17 -c95
+  565  siege -i -f /home/django/Geekstore/geekshop/urls.txt -d0 -r17 -c90
+  566  nano urls.txt
+  567  cd oprdersapp
+  568  cd ordersapp
+  569  nano views.py
+  570  cd ..
+  571  cd mainapp
+  572  nano context_processors.py
+  573  systemctl restart gunicorn
+  574  cd ..
+  575  nano urls.txt
+  576  history
+  577  ls
+  578  nano tmp.txt
+  579  history >> tmp.txt
