@@ -2,7 +2,8 @@ from django.db import transaction
 from django.forms import inlineformset_factory
 from django.http import HttpResponseRedirect, JsonResponse
 from django.shortcuts import render, get_object_or_404
-
+from django.utils.decorators import method_decorator
+from django.contrib.auth.decorators import login_required
 # Create your views here.
 from django.urls import reverse, reverse_lazy
 from django.views.generic import ListView, DetailView, UpdateView, CreateView, DeleteView, TemplateView
@@ -21,6 +22,10 @@ class OrderListView(ListView, BaseClassContextMixin):
 
     def get_queryset(self):
         return Order.objects.filter(is_active=True, user=self.request.user)
+
+    @method_decorator(login_required())
+    def dispatch(self, *args, **kwargs):
+        return super(ListView, self).dispatch(*args, **kwargs)
 
 
 class OrderCreateView(CreateView, BaseClassContextMixin):
@@ -66,6 +71,9 @@ class OrderCreateView(CreateView, BaseClassContextMixin):
 
         return super(OrderCreateView, self).form_valid(form)
 
+    @method_decorator(login_required())
+    def dispatch(self, *args, **kwargs):
+        return super(CreateView, self).dispatch(*args, **kwargs)
 
 class OrderUpdateView(UpdateView, BaseClassContextMixin):
     model = Order
@@ -114,6 +122,9 @@ class OrderDetailView(DetailView, BaseClassContextMixin):
     model = Order
     title = 'Geekshop | Просмотр заказа'
 
+    @method_decorator(login_required())
+    def dispatch(self, *args, **kwargs):
+        return super(DetailView, self).dispatch(*args, **kwargs)
 
 def order_forming_complete(request, pk):
     order = get_object_or_404(Order, pk=pk)
