@@ -1,5 +1,5 @@
 from django.db import models
-from  django.conf import settings
+from django.conf import settings
 
 # Create your models here.
 
@@ -49,6 +49,13 @@ class Order(models.Model):
     def get_total_cost(self):
         items = self.orderitems.select_related('product')
         return sum(list(map(lambda x: x.get_product_cost(), items)))
+
+    # def get_summary(self):
+    #     items = self.orderitems.select_related()
+    #     return {
+    #         'total_cost': sum(list(map(lambda x: x.quantity * x.product.price, items))),
+    #         'total_quantity': sum(list(map(lambda x: x.quantity, items)))
+    #     }
 
     def get_item(self):
         pass
