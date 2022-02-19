@@ -70,5 +70,32 @@
     "description": "Для посиделок с чаем",
     "price": "1917",
     "quantity": "710"
+  },
+  {
+    "category": "модерн",
+    "name": "vincenzo",
+    "image": "products_images/vincenzo.jpg",
+    "short_desc":"комфортное кресло",
+    "description": "На любой случай",
+    "price": "19170",
+    "quantity": "10"
+  },
+  {
+    "category": "модерн",
+    "name": "mayole",
+    "image": "products_images/mayole.jpg",
+    "short_desc":"комфортное кресло",
+    "description": "Почувствуй Италию под седалищем",
+    "price": "29170",
+    "quantity": "6"
+  },
+  {
+    "category": "модерн",
+    "name": "stragazzo",
+    "image": "products_images/stragazzo.jpg",
+    "short_desc":"комфортное кресло",
+    "description": "Почувствуй себя Duque della Italia",
+    "price": "39170",
+    "quantity": "1"
   }
 ]
