@@ -87,6 +87,20 @@ class CategoryCreateView(CreateView,BaseClassContextMixin,CustomDispatchMixin):
     form_class = CategoryUpdateFormAdmin
     title = 'Админка | Создание категории'
 
+    def form_valid(self, form):
+        if 'discount' in form.cleaned_data:
+            discount = form.cleaned_data['discount']
+            if discount:
+                print(f'применяется скидка {discount} % к товарам категории {self.object.name}')
+                self.object.product_set.update(price=F('price') * (1 - discount / 100))
+                self.db_profile_by_type(self.__class__, 'UPDATE', connection.queries)
+        return HttpResponseRedirect(self.get_success_url())
+
+    def db_profile_by_type(self, prefix, type, queries):
+        update_queries = list(filter(lambda x: type in x['sql'], queries))
+        print(f'db_profile {type} for {prefix}:')
+        [print(query['sql']) for query in update_queries]
+
 # Product
 class ProductListView(ListView,BaseClassContextMixin,CustomDispatchMixin):
     model = Product

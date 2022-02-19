@@ -2,17 +2,17 @@ from django.conf import settings
 from django.db import models
 # from django.utils.functional import cached_property
 from mainapp.models import Product
+from django.utils.functional import cached_property
 
 
 
-
-class BasketQuerySet(models.QuerySet):
-
-   def delete(self, *args, **kwargs):
-       for object in self:
-           object.product.quantity += object.quantity
-           object.product.save()
-       super(BasketQuerySet, self).delete(*args, **kwargs)
+# class BasketQuerySet(models.QuerySet):
+#
+#    def delete(self, *args, **kwargs):
+#        for object in self:
+#            object.product.quantity += object.quantity
+#            object.product.save()
+#        super(BasketQuerySet, self).delete(*args, **kwargs)
 
 
 class Basket(models.Model):
@@ -21,7 +21,7 @@ class Basket(models.Model):
     quantity = models.PositiveSmallIntegerField(verbose_name='количество', default=0)
     add_timestamp = models.DateTimeField(auto_now_add=True, verbose_name='время')
     update_timestamp = models.DateTimeField(auto_now=True)
-    objects = BasketQuerySet.as_manager()
+    # objects = BasketQuerySet.as_manager()
 
     def __str__(self):
         return f'Корзина для  {self.user.username} | Продукт{self.product.name}'
@@ -39,6 +39,10 @@ class Basket(models.Model):
     @property
     def product_cost(self):
         return self.product.price * self.quantity
+
+    @cached_property
+    def get_items_cached(self):
+        return self.user.basket.select_related()
 
     @property
     def total_quantity(self):

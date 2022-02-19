@@ -147,7 +147,7 @@ STATICFILES_DIRS = (BASE_DIR / 'static',)
 # STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
 MEDIA_URL = '/media/'
-MEDIA_ROOT = os.path.join(BASE_DIR,'media')
+MEDIA_ROOT = BASE_DIR/'media'
 
 AUTH_USER_MODEL = 'authapp.ShopUser'
 LOGIN_URL = '/auth/login/'
@@ -199,7 +199,7 @@ if DEBUG:
    }
 
    DEBUG_TOOLBAR_PANELS = [
-        'debug_toolbar.panels.versions.VersionsPanel',
+    'debug_toolbar.panels.versions.VersionsPanel',
     'debug_toolbar.panels.timer.TimerPanel',
     'debug_toolbar.panels.settings.SettingsPanel',
     'debug_toolbar.panels.headers.HeadersPanel',

@@ -1,8 +1,9 @@
+from django.db import connection
 from django.contrib.auth.decorators import login_required
 from django.http import HttpResponseRedirect, JsonResponse
 from django.shortcuts import render
 from django.template.loader import render_to_string
-
+from django.db.models import F,Q
 from basketapp.models import Basket
 from mainapp.models import Product
 
@@ -17,6 +18,8 @@ def basket_add(request, pk):
         basket = baskets.first()
         basket.quantity +=1
         basket.save()
+        update_queries = list(filter(lambda x: 'UPDATE' in x['sql'], connection.queries))
+        print(f'basket_add {update_queries} ')
     else:
         Basket.objects.create(user=user_select,product=product,quantity=1)
     return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
