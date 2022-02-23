@@ -69,7 +69,7 @@ class Command(BaseCommand):
 
 
 
-        t_list = PrettyTable(["Заказ", "Товар", "Скидка", 'Раздница времени'])
+        t_list = PrettyTable(["Заказ", "Товар", "Скидка", 'Разница времени'])
         t_list.align = 'l'
         i = 0
         for orderitem in test_orderss:

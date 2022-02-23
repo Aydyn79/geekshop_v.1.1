@@ -8,11 +8,11 @@ from django.db.models import Q
 class Command(BaseCommand):
     def handle(self, *args, **options):
         # products = Product.objects.filter(
-        #     Q(category__name='Обувь') | Q(id=18))
+        #     Q(category__name='дом') | Q(id=166))
         # products = Product.objects.filter(
-        #     Q(category__name='Обувь') & Q(id=5))
-        # products = Product.objects.filter(
-        #     ~Q(category__name='Обувь') )
+        #     Q(name='КупецЪ') | ~Q(category__name='классика'))
         products = Product.objects.filter(
-            ~Q(category__name='Обувь'), id=4)
+            Q(name__contains='Комфорт'))
+        # products = Product.objects.filter(
+        #     ~Q(category__name='офис'))
         print(products)

@@ -27,4 +27,8 @@ class Command(BaseCommand):
             _cat = ProductCategory.objects.get(name=prod['category'])
             prod['category'] = _cat
             Product.objects.create(**prod)
-        ShopUser.objects.create_superuser('django','django@local.gb', 'geekbrains', age=18)
+        # shop_users = ShopUser.objects.all()
+        # for uzver in shop_users:
+        #     if uzver.username != "admin":
+        #         uzver.delete()
+        # ShopUser.objects.create_superuser('odmin','django@local.gb', 'odmin', age=18)
