@@ -143,19 +143,19 @@ def get_product_price(request, pk):
             return JsonResponse({'price': product.price})
         return JsonResponse({'price': 0})
 
-@receiver(pre_delete, sender=OrderItem)
-@receiver(pre_delete, sender=Basket)
-def product_quantity_update_delete(sender, instance, **kwargs):
-    instance.product.quantity += instance.quantity
-    instance.product.save()
-
-
-@receiver(pre_save, sender=OrderItem)
-@receiver(pre_save, sender=Basket)
-def product_quantity_update_save(sender, instance, **kwargs):
-    if instance.pk:
-        get_item = instance.get_item(int(instance.pk))
-        instance.product.quantity -= instance.quantity - get_item
-    else:
-        instance.product.quantity -= instance.quantity
-    instance.product.save()
+# @receiver(pre_delete, sender=OrderItem)
+# @receiver(pre_delete, sender=Basket)
+# def product_quantity_update_delete(sender, instance, **kwargs):
+#     instance.product.quantity += instance.quantity
+#     instance.product.save()
+#
+#
+# @receiver(pre_save, sender=OrderItem)
+# @receiver(pre_save, sender=Basket)
+# def product_quantity_update_save(sender, instance, **kwargs):
+#     if instance.pk:
+#         get_item = instance.get_item(int(instance.pk))
+#         instance.product.quantity -= instance.quantity - get_item
+#     else:
+#         instance.product.quantity -= instance.quantity
+#     instance.product.save()

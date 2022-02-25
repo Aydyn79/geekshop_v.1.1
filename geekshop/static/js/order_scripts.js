@@ -62,6 +62,7 @@ window.onload = function () {
             let target = event.target;
             orderitem_num = parseInt(target.name.replace('orderitems-', '').replace('-product', ''));
             let orderitem_product_pk = target.options[target.selectedIndex].value;
+//            let orderitem_product_pk = target.value;
 //            console.log(orderitem_num);
 //            console.log(orderitem_product_pk);
             if (orderitem_product_pk){
